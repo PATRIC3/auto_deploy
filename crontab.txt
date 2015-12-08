@@ -1,0 +1,6 @@
+5 11 * * * /bin/df -h >> /disks/p3/git/adapters/auto-deploy/disk.log 2>&1
+0 23 * * * /disks/p3/git/adapters/auto-deploy/deploy-app_service.sh > /disks/p3/git/adapters/auto-deploy/app_service.log 2>&1
+5 23 * * * /disks/p3/git/adapters/auto-deploy/deploy-oxcart.sh > /disks/p3/git/adapters/auto-deploy/oxcart.log 2>&1
+5 0 * * * /disks/p3/git/adapters/auto-deploy/monitor-logs.pl /disks/p3/git/adapters/auto-deploy >& /dev/null
+10 0 * * * /disks/p3/git/adapters/auto-deploy/distribute-deployment.sh > /disks/p3/git/adapters/auto-deploy/distribute-deployment.log 2>&1
+*/2 * * * * /disks/p3/gmetric/gmetric-vbi.pl
